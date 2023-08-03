@@ -236,6 +236,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shipPrefab: {fileID: 3479498181259195234, guid: 9d3574786b92c1849949ff58cefcca48, type: 3}
+  shipGhostPrefab: {fileID: 0}
+  courseLinePrefab: {fileID: 0}
 --- !u!1 &432441371
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,6 +327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0b174b3465cbe040abd7f7bdffc7489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameDisplayer: {fileID: 277816104}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
