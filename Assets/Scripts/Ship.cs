@@ -17,19 +17,19 @@ public class Ship : MonoBehaviour
         gameRotation = newGameRotation;
         if (newGameRotation == "N")
         {
-            transform.Rotate(0, 0, 0);
+            transform.eulerAngles = new Vector3(0, 0, 0);
         }
         else if (newGameRotation == "S")
         {
-            transform.Rotate(0, 0, -180);
+            transform.eulerAngles = new Vector3(0, 0, -180);
         }
         else if (newGameRotation == "W")
         {
-            transform.Rotate(0, 0, 270);
+            transform.eulerAngles = new Vector3(0, 0, 90);
         }
         else if (newGameRotation == "E")
         {
-            transform.Rotate(0, 0, 90);
+            transform.eulerAngles = new Vector3(0, 0, 270);
         }
     }
 

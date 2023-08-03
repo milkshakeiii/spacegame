@@ -43,6 +43,11 @@ public class GameDisplayer : MonoBehaviour
                     {
                         Ship ship = uuidsToShips[uuid];
                         ship.DisplayUpdate(position, facing);
+                        if (uuid == myShipUuid)
+                        {
+                            // follow with camera
+                            Camera.main.transform.position = new Vector3(ship.transform.position.x, ship.transform.position.y, -10);
+                        }
                     }
                     else
                     {
@@ -50,9 +55,8 @@ public class GameDisplayer : MonoBehaviour
                         ship.GetComponent<Ship>().Initialize(position, facing);
                         if (uuid == myShipUuid)
                         {
-                            // child the camera to the ship
-                            Camera.main.transform.SetParent(ship.transform);
-                            Camera.main.transform.localPosition = new Vector3(0, 0, -10);
+                            // follow with camera
+                            Camera.main.transform.position = new Vector3(ship.transform.position.x, ship.transform.position.y, -10);
                         }
                         uuidsToShips.Add(uuid, ship.GetComponent<Ship>());
                     }
