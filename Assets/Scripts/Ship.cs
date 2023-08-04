@@ -9,6 +9,16 @@ public class Ship : MonoBehaviour
     private Vector2Int gamePosition;
     private string gameRotation;
 
+    public string GetFacing()
+    {
+        return gameRotation;
+    }
+
+    public Vector2Int GetPosition()
+    {
+        return gamePosition;
+    }
+
     public void Initialize(Vector2Int newGamePosition, string newGameRotation)
     {
         gamePosition = newGamePosition;
