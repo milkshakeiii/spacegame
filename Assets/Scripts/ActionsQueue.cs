@@ -119,11 +119,17 @@ public class ActionsQueue : MonoBehaviour
         string currentFacing = gameDisplayer.GetFacingAndPosition(myShipUuid).Item1;
         foreach (string command in pendingCommands)
         {
-            Vector2Int nextPosition = gameDisplayer.GetNextPosition(currentPosition, currentFacing, command);
+            // TODO start here
+            Vector2Int nextPosition = currentPosition;
+            if (command == "step")
+                nextPosition += GameDisplayer.GetFacingVector(currentFacing);
             GameObject courseLine = Instantiate(courseLinePrefab, BoardPositionToWorldPosition(currentPosition), Quaternion.identity);
             courseLine.GetComponent<CourseLine>().Initialize(BoardPositionToWorldPosition(currentPosition), BoardPositionToWorldPosition(nextPosition));
             currentPosition = nextPosition;
-            currentFacing = gameDisplayer.GetNextFacing(currentFacing, command);
+            if (command == "right")
+                currentFacing = GameDisplayer.GetRightFacing(currentFacing);
+            else if (command == "left")
+                currentFacing = GameDisplayer.GetLeftFacing(currentFacing);
         }
     }
     
