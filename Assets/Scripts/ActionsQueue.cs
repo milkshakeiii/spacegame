@@ -126,7 +126,6 @@ public class ActionsQueue : MonoBehaviour
         string currentFacing = gameDisplayer.GetFacingAndPosition(myShipUuid).Item1;
         foreach (string command in pendingCommands)
         {
-            // TODO start here
             Vector2Int nextPosition = currentPosition;
             if (command == "step")
                 nextPosition += GameDisplayer.GetFacingVector(currentFacing);
