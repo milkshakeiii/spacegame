@@ -1,4 +1,4 @@
-"""URL configuration for spacegame project."""
+"""URL configuration for MonsterMakers project."""
 from django.contrib import admin
 from django.urls import path, include
 

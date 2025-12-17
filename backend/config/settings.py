@@ -1,5 +1,5 @@
 """
-Django settings for spacegame project.
+Django settings for MonsterMakers project.
 """
 
 from pathlib import Path

@@ -1,5 +1,5 @@
 """
-WSGI config for spacegame project.
+WSGI config for MonsterMakers project.
 """
 
 import os

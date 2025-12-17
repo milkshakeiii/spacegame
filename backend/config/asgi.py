@@ -1,5 +1,5 @@
 """
-ASGI config for spacegame project.
+ASGI config for MonsterMakers project.
 """
 
 import os

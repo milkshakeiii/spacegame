@@ -1,4 +1,4 @@
-"""Main CLI entry point for spacegame."""
+"""Main CLI entry point for MonsterMakers."""
 
 import json
 import os
@@ -6,12 +6,12 @@ import sys
 
 import click
 
-from .api import SpacegameAPI, APIError
+from .api import MmAPI, APIError
 
 
-def get_api() -> SpacegameAPI:
+def get_api() -> MmAPI:
     """Get API client."""
-    return SpacegameAPI()
+    return MmAPI()
 
 
 def output(data: dict, as_json: bool):
@@ -26,7 +26,7 @@ def output(data: dict, as_json: bool):
 @click.group()
 @click.version_option(version="0.1.0")
 def cli():
-    """Spacegame CLI - a space simulation."""
+    """MonsterMakers CLI - a monster simulation."""
     pass
 
 
@@ -45,7 +45,7 @@ def login(username: str, as_json: bool):
             print(f"Token: {result['token']}")
             print()
             print("Set this environment variable to use other commands:")
-            print(f"  export SPACEGAME_TOKEN={result['token']}")
+            print(f"  export MM_TOKEN={result['token']}")
     except APIError as e:
         if as_json:
             print(json.dumps({"error": str(e)}))
@@ -60,7 +60,7 @@ def status(as_json: bool):
     """Show current game status."""
     api = get_api()
     if not api.token:
-        msg = "SPACEGAME_TOKEN not set. Run 'spacegame login <username>' first."
+        msg = "MM_TOKEN not set. Run 'mm login <username>' first."
         if as_json:
             print(json.dumps({"error": msg}))
         else:
